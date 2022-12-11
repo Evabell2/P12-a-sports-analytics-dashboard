@@ -1,0 +1,325 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+    header#horizontal_menu {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 15px 0;
+        background: black;
+        z-index: 10;
+
+        &>a {
+            width: 10%;
+            padding-left: 35px;
+
+            img {
+                display: flex;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            width: 90%;
+
+            a {
+                font-weight: 500;
+                font-size: 24px;
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+
+    #vertical_menu {
+        position: fixed;
+        bottom: 0;
+        float: left;
+        width: 7%;
+        height: calc(100vh - 80.72px);
+        background: black;
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70%;
+
+            a {
+                margin: 5px 0;
+            }
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30%;
+
+            p {
+                font-weight: 500;
+                font-size: 12px;
+                color: white;
+            }
+        }
+
+    }
+
+    $couleur_primaire: #FF0101;
+
+    #user_profile {
+        display: flex;
+        flex-wrap: wrap;
+        float: right;
+        width: 93%;
+        margin-top: 5%;
+        padding-bottom: 5%;
+
+        #user_message {
+            width: 100%;
+            padding: 0 100px;
+
+            h1 {
+                font-weight: 500;
+                font-size: 48px;
+
+                span {
+                    margin-left: 15px;
+                    color: $couleur_primaire;
+                }
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 18px;
+            }
+
+        }
+
+        #graphics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            width: 70%;
+
+            h2 {
+                font-weight: 600;
+                font-size: 15px;
+            }
+
+            .bachart {
+                position: relative;
+                width: 100%;
+                margin-top: 5%;
+                margin-left: 7%;
+
+                h2 {
+                    margin-left: 8%;
+                    font-weight: 600;
+                    font-size: 15px;
+                }
+
+                .recharts-wrapper {
+                    position: initial !important;
+
+                    .recharts-legend-wrapper {
+                        left: initial !important;
+                        bottom: initial !important;
+                        right: 0;
+                        top: 0;
+                        width: 100% !important;
+                        transform: translateX(45px);
+
+                        ul {
+                            text-align: right !important;
+
+                            span {
+                                font-weight: 500;
+                                color: #74798C !important;
+                            }
+                        }
+
+                    }
+
+                    &>svg.recharts-surface {
+                        overflow: visible;
+                        margin-top: 5%;
+
+                        .recharts-yAxis {
+                            transform: translateX(100%);
+
+                            line {
+                                display: none;
+                            }
+                        }
+
+                        .recharts-xAxis {
+                            .recharts-cartesian-axis-ticks {
+                                transform: translateY(20px);
+
+                                .recharts-cartesian-axis-tick-line {
+                                    display: none;
+                                }
+
+                            }
+
+                            line {
+                                stroke: #DEDEDE !important;
+                            }
+                        }
+
+                    }
+                }
+
+                .recharts-tooltip-wrapper .recharts-default-tooltip {
+                    background-color: $couleur_primaire !important;
+                    border: 1px solid transparent !important;
+
+                    .recharts-tooltip-label {
+                        display: none;
+                    }
+
+                    ul {
+                        li {
+                            text-align: center;
+                            color: white !important;
+                            font-weight: 500;
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+
+                .recharts-cartesian-grid-vertical line {
+                    display: none;
+                }
+            }
+
+            .lineChart {
+                width: 30%;
+                margin: 10% 0 0 10%;
+                padding: 20px 0;
+                background: $couleur_primaire;
+                border-radius: 5px;
+
+                h2 {
+                    margin-bottom: 25%;
+                    padding: 0 70px 0 30px;
+                    color: white;
+                    opacity: .5;
+                }
+
+                &>div>svg.recharts-surface {
+                    width: 100% !important;
+
+                    .recharts-xAxis {
+                        line {
+                            display: none;
+                        }
+
+                        g {
+                            font-weight: 500;
+                            font-size: 12px;
+                            color: white !important;
+                        }
+                    }
+                }
+            }
+
+            .RadarChart {
+                width: 30%;
+                height: 300px;
+                margin-top: 10%;
+                background: #282D30;
+                border-radius: 5px;
+
+                .recharts-wrapper {
+                    width: 275px !important;
+                    margin: 0 auto;
+
+                    &>svg {
+                        width: 100%;
+                        height: 100%;
+                        overflow: visible;
+
+                        g text {
+                            fill: white !important;
+
+                            tspan {
+                                font-weight: 500;
+                                font-size: 12px;
+                            }
+                        }
+
+                        .recharts-layer.recharts-polar-radius-axis {
+                            display: none;
+                        }
+
+                        .recharts-radar-polygon .recharts-polygon {
+                            fill: $couleur_primaire !important;
+                            stroke: $couleur_primaire !important;
+                            fill-opacity: 0.7 !important;
+                            stroke-opacity: 0.7 !important;
+                        }
+                    }
+                }
+            }
+
+            .RadialBarChart_Score {
+                width: 23%;
+                height: 200px;
+                margin-top: 10%;
+
+                &>div>svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        #key_info {
+            width: 30%;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 100px;
+                padding: 5%;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    list-style-type: none;
+
+                    img {
+                        width: 60px;
+                        height: 60px;
+                        margin-right: 25px;
+                    }
+
+                    p {
+                        margin-top: 0;
+                        margin-bottom: 5px;
+                        font-weight: 700;
+                        font-size: 20px;
+                    }
+
+                    span {
+                        color: #74798C;
+                        font-weight: 500;
+                        font-size: 14px;
+                    }
+
+                }
+            }
+        }
+    }
+}
