@@ -21,7 +21,7 @@ function BarChartActivity() {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" />
-        <YAxis />
+        <YAxis tickCount={3} />
         <Tooltip />
         <Legend />
         <Bar dataKey="kilogram" fill="#282D30" radius={[3, 3, 0, 0]} name="Poids (kg)" barSize={7} />

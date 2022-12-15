@@ -14,6 +14,10 @@ const service = {
     getActivity: async(id) => {
         const response = await fetch("http://localhost:3000/user/"+id+"/activity")
         const data = await response.json()
+        for (const session of data.data.sessions) {
+            const date = new Date(session.day)
+            session.day = date.getDate()
+        }
         return data
     },
     getAverageSessions: async(id) => {

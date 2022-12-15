@@ -64,6 +64,8 @@ body {
             height: 30%;
 
             p {
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
                 font-weight: 500;
                 font-size: 12px;
                 color: white;
@@ -140,10 +142,30 @@ body {
                         ul {
                             text-align: right !important;
 
-                            span {
-                                font-weight: 500;
-                                color: #74798C !important;
+                            li {
+                                padding: 0 10px;
+
+                                &:first-of-type svg {
+                                    background: #282d30;
+                                }
+
+                                &:last-of-type svg {
+                                    background: $couleur_primaire;
+                                }
+
+                                svg {
+                                    width: 8px;
+                                    height: 8px;
+                                    margin-right: 12px !important;
+                                    border-radius: 50px;
+                                }
+
+                                span {
+                                    font-weight: 500;
+                                    color: #74798C !important;
+                                }
                             }
+
                         }
 
                     }
@@ -230,6 +252,7 @@ body {
                             color: white !important;
                         }
                     }
+
                 }
             }
 

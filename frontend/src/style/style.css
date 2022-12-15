@@ -57,6 +57,9 @@ body #vertical_menu div {
   height: 30%;
 }
 body #vertical_menu div p {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: rotate(180deg);
   font-weight: 500;
   font-size: 12px;
   color: white;
@@ -120,7 +123,22 @@ body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper
 body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul {
   text-align: right !important;
 }
-body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul span {
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul li {
+  padding: 0 10px;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul li:first-of-type svg {
+  background: #282d30;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul li:last-of-type svg {
+  background: #FF0101;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul li svg {
+  width: 8px;
+  height: 8px;
+  margin-right: 12px !important;
+  border-radius: 50px;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul li span {
   font-weight: 500;
   color: #74798C !important;
 }
