@@ -23,6 +23,10 @@ const service = {
     getAverageSessions: async(id) => {
         const response = await fetch("http://localhost:3000/user/"+id+"/average-sessions")
         const data = await response.json()
+        for (const week of data.data.sessions) {
+            const array = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+            week.day = array
+        }
         return data
     },
     getPerformance: async(id) => {

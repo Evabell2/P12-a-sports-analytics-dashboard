@@ -15,10 +15,10 @@ function LineChartDurationSessions() {
     return (
         <div className='lineChart'>
             <h2>Durée moyenne des sessions</h2>
-            <LineChart width={300} height={100} data={duration.data && duration.data.sessions}>
+            <LineChart width={300} height={160} data={duration.data && duration.data.sessions}>
                 <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" strokeWidth={2} />
-                <XAxis dataKey="day" />
-                <Tooltip />
+                <XAxis dataKey="day" position="bottom" tick={{ interval: 0 }} />
+                <Tooltip wrapperStyle={{ border: 'none' }} />
             </LineChart>
         </div>
     )

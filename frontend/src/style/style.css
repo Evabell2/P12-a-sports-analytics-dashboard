@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -37,7 +38,7 @@ body #vertical_menu {
   bottom: 0;
   float: left;
   width: 7%;
-  height: calc(100vh - 80.72px);
+  height: 100%;
   background: black;
 }
 body #vertical_menu nav {
@@ -72,9 +73,22 @@ body #user_profile {
   margin-top: 5%;
   padding-bottom: 5%;
 }
+@media (max-width: 1405px) {
+  body #user_profile {
+    flex-direction: column;
+    margin-top: 8%;
+  }
+}
 body #user_profile #user_message {
   width: 100%;
   padding: 0 100px;
+}
+@media (max-width: 1405px) {
+  body #user_profile #user_message {
+    width: auto;
+    padding: 0 5%;
+    text-align: center;
+  }
 }
 body #user_profile #user_message h1 {
   font-weight: 500;
@@ -94,6 +108,12 @@ body #user_profile #graphics {
   gap: 30px;
   width: 70%;
 }
+@media (max-width: 1405px) {
+  body #user_profile #graphics {
+    justify-content: center;
+    width: 100%;
+  }
+}
 body #user_profile #graphics h2 {
   font-weight: 600;
   font-size: 15px;
@@ -104,21 +124,36 @@ body #user_profile #graphics .bachart {
   margin-top: 5%;
   margin-left: 7%;
 }
-body #user_profile #graphics .bachart h2 {
-  margin-left: 8%;
-  font-weight: 600;
-  font-size: 15px;
+@media (max-width: 1405px) {
+  body #user_profile #graphics .bachart {
+    margin-left: 0;
+  }
 }
 body #user_profile #graphics .bachart .recharts-wrapper {
   position: initial !important;
+  width: 100% !important;
+}
+@media (max-width: 1405px) {
+  body #user_profile #graphics .bachart .recharts-wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
 body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper {
-  left: initial !important;
-  bottom: initial !important;
-  right: 0;
-  top: 0;
-  width: 100% !important;
-  transform: translateX(45px);
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1405px) {
+  body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper {
+    justify-content: center;
+    gap: 30px;
+  }
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper::before {
+  content: "Activité quotidienne";
+  margin-left: 5%;
+  font-weight: 600;
+  font-size: 15px;
 }
 body #user_profile #graphics .bachart .recharts-wrapper .recharts-legend-wrapper ul {
   text-align: right !important;
@@ -146,9 +181,6 @@ body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface {
   overflow: visible;
   margin-top: 5%;
 }
-body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-yAxis {
-  transform: translateX(100%);
-}
 body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-yAxis line {
   display: none;
 }
@@ -161,28 +193,66 @@ body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .
 body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-xAxis line {
   stroke: #DEDEDE !important;
 }
-body #user_profile #graphics .bachart .recharts-tooltip-wrapper .recharts-default-tooltip {
-  background-color: #FF0101 !important;
-  border: 1px solid transparent !important;
+body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-cartesian-grid {
+  transform: translateX(48px);
 }
-body #user_profile #graphics .bachart .recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-label {
+body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-cartesian-grid-horizontal line:first-of-type {
+  stroke-dasharray: 0 !important;
+}
+body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-cartesian-axis line {
   display: none;
 }
-body #user_profile #graphics .bachart .recharts-tooltip-wrapper .recharts-default-tooltip ul li {
+body #user_profile #graphics .bachart .recharts-wrapper > svg.recharts-surface .recharts-tooltip-cursor {
+  transform: translateX(26px);
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper {
+  border: none !important;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px !important;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: #FF0101 !important;
+  border: none !important;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-label {
+  display: none;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip ul li {
   text-align: center;
   color: white !important;
   font-weight: 500;
   font-size: 12px;
 }
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip ul li:first-of-type {
+  margin-bottom: 20px;
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip ul li:first-of-type .recharts-tooltip-item-value::after {
+  content: "kg";
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip ul li:last-of-type .recharts-tooltip-item-value::after {
+  content: "kcal";
+}
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip ul li .recharts-tooltip-item-name,
+body #user_profile #graphics .bachart .recharts-wrapper .recharts-tooltip-wrapper .recharts-default-tooltip ul li .recharts-tooltip-item-separator {
+  display: none;
+}
 body #user_profile #graphics .bachart .recharts-cartesian-grid-vertical line {
   display: none;
 }
 body #user_profile #graphics .lineChart {
-  width: 30%;
+  width: 27.6666666667%;
   margin: 10% 0 0 10%;
   padding: 20px 0;
-  background: #FF0101;
+  background: linear-gradient(90deg, rgb(255, 0, 0) 70%, rgb(214, 4, 4) 70%);
   border-radius: 5px;
+}
+@media (max-width: 1405px) {
+  body #user_profile #graphics .lineChart {
+    margin: 10% 0 0 0;
+    width: 26%;
+    background: linear-gradient(90deg, rgb(255, 0, 0) 73%, rgb(214, 4, 4) 73%);
+  }
 }
 body #user_profile #graphics .lineChart h2 {
   margin-bottom: 25%;
@@ -190,32 +260,80 @@ body #user_profile #graphics .lineChart h2 {
   color: white;
   opacity: 0.5;
 }
+body #user_profile #graphics .lineChart > div {
+  height: 135px !important;
+  width: 100% !important;
+}
 body #user_profile #graphics .lineChart > div > svg.recharts-surface {
   width: 100% !important;
+}
+body #user_profile #graphics .lineChart > div > svg.recharts-surface .recharts-xAxis {
+  transform: scale(0.9) translate(19px, 25px);
 }
 body #user_profile #graphics .lineChart > div > svg.recharts-surface .recharts-xAxis line {
   display: none;
 }
-body #user_profile #graphics .lineChart > div > svg.recharts-surface .recharts-xAxis g {
+body #user_profile #graphics .lineChart > div > svg.recharts-surface .recharts-xAxis text {
+  fill: white !important;
+  font-size: 14px;
   font-weight: 500;
-  font-size: 12px;
-  color: white !important;
+}
+body #user_profile #graphics .lineChart > div > svg.recharts-surface .recharts-line {
+  transform: scale(1.03) translateX(-4px);
+}
+body #user_profile #graphics .lineChart > div > svg.recharts-surface .recharts-line path {
+  stroke: rgb(255, 255, 255) !important;
+}
+body #user_profile #graphics .lineChart .recharts-tooltip-cursor {
+  display: none;
+}
+body #user_profile #graphics .lineChart circle {
+  fill: white !important;
+  stroke: rgba(255, 255, 255, 0.2) !important;
+  stroke-width: 20px;
+}
+body #user_profile #graphics .lineChart .recharts-tooltip-wrapper:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px !important;
+}
+body #user_profile #graphics .lineChart .recharts-tooltip-wrapper .recharts-tooltip-label {
+  display: none;
+}
+body #user_profile #graphics .lineChart .recharts-tooltip-wrapper ul li {
+  color: black !important;
+}
+body #user_profile #graphics .lineChart .recharts-tooltip-wrapper ul li .recharts-tooltip-item-name,
+body #user_profile #graphics .lineChart .recharts-tooltip-wrapper ul li .recharts-tooltip-item-separator {
+  display: none;
+}
+body #user_profile #graphics .lineChart .recharts-tooltip-wrapper ul li .recharts-tooltip-item-value::after {
+  content: " min";
 }
 body #user_profile #graphics .RadarChart {
-  width: 30%;
+  width: 27.6666666667%;
   height: 300px;
   margin-top: 10%;
   background: #282D30;
   border-radius: 5px;
 }
+@media (max-width: 1405px) {
+  body #user_profile #graphics .RadarChart {
+    width: 26%;
+  }
+}
 body #user_profile #graphics .RadarChart .recharts-wrapper {
-  width: 275px !important;
+  width: 100% !important;
   margin: 0 auto;
 }
 body #user_profile #graphics .RadarChart .recharts-wrapper > svg {
   width: 100%;
   height: 100%;
+  transform: scale(0.85);
   overflow: visible;
+}
+@media (max-width: 1405px) {
+  body #user_profile #graphics .RadarChart .recharts-wrapper > svg {
+    transform: scale(0.82);
+  }
 }
 body #user_profile #graphics .RadarChart .recharts-wrapper > svg g text {
   fill: white !important;
@@ -234,22 +352,73 @@ body #user_profile #graphics .RadarChart .recharts-wrapper > svg .recharts-radar
   stroke-opacity: 0.7 !important;
 }
 body #user_profile #graphics .RadialBarChart_Score {
-  width: 23%;
-  height: 200px;
+  position: relative;
+  width: 27.6666666667%;
+  height: 300px;
   margin-top: 10%;
+  background: rgba(243, 243, 243, 0.631372549);
+  border-radius: 5px;
+}
+@media (max-width: 1405px) {
+  body #user_profile #graphics .RadialBarChart_Score {
+    width: 26%;
+  }
 }
 body #user_profile #graphics .RadialBarChart_Score > div > svg {
   width: 100%;
   height: 100%;
+  overflow: visible !important;
+}
+body #user_profile #graphics .RadialBarChart_Score h2 {
+  padding: 5% 10% 0;
+  margin-bottom: 0;
+}
+body #user_profile #graphics .RadialBarChart_Score span {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 100%;
+  transform: translateX(50%);
+  text-align: center;
+  font-size: 16px;
+  color: #74798C;
+}
+body #user_profile #graphics .RadialBarChart_Score span p {
+  margin: 0;
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: #282D30;
+}
+body #user_profile #graphics .RadialBarChart_Score .recharts-area {
+  transform: rotate(-20deg) translate(-45px, 0) !important;
 }
 body #user_profile #key_info {
   width: 30%;
+}
+@media (max-width: 1405px) {
+  body #user_profile #key_info {
+    width: 100%;
+  }
 }
 body #user_profile #key_info ul {
   display: flex;
   flex-direction: column;
   gap: 100px;
   padding: 5%;
+}
+@media (max-width: 1405px) {
+  body #user_profile #key_info ul {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 65px;
+    padding: 5% 8%;
+  }
 }
 body #user_profile #key_info ul li {
   display: flex;

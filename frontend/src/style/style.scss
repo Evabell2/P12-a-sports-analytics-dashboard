@@ -42,7 +42,7 @@ body {
         bottom: 0;
         float: left;
         width: 7%;
-        height: calc(100vh - 80.72px);
+        height: 100%;
         background: black;
 
         nav {
@@ -84,9 +84,20 @@ body {
         margin-top: 5%;
         padding-bottom: 5%;
 
+        @media (max-width: 1405px) {
+            flex-direction: column;
+            margin-top: 8%
+        }
+
         #user_message {
             width: 100%;
             padding: 0 100px;
+
+            @media (max-width: 1405px) {
+                width: auto;
+                padding: 0 5%;
+                text-align: center;
+            }
 
             h1 {
                 font-weight: 500;
@@ -111,6 +122,11 @@ body {
             gap: 30px;
             width: 70%;
 
+            @media (max-width: 1405px) {
+                justify-content: center;
+                width: 100%;
+            }
+
             h2 {
                 font-weight: 600;
                 font-size: 15px;
@@ -122,22 +138,34 @@ body {
                 margin-top: 5%;
                 margin-left: 7%;
 
-                h2 {
-                    margin-left: 8%;
-                    font-weight: 600;
-                    font-size: 15px;
+                @media (max-width: 1405px) {
+                    margin-left: 0;
                 }
 
                 .recharts-wrapper {
                     position: initial !important;
+                    width: 100% !important;
+
+                    @media (max-width: 1405px) {
+                        display: flex;
+                        justify-content: center;
+                    }
 
                     .recharts-legend-wrapper {
-                        left: initial !important;
-                        bottom: initial !important;
-                        right: 0;
-                        top: 0;
-                        width: 100% !important;
-                        transform: translateX(45px);
+                        display: flex;
+                        justify-content: space-between;
+
+                        @media (max-width: 1405px) {
+                            justify-content: center;
+                            gap: 30px;
+                        }
+
+                        &::before {
+                            content: 'Activité quotidienne';
+                            margin-left: 5%;
+                            font-weight: 600;
+                            font-size: 15px;
+                        }
 
                         ul {
                             text-align: right !important;
@@ -165,21 +193,15 @@ body {
                                     color: #74798C !important;
                                 }
                             }
-
                         }
-
                     }
 
                     &>svg.recharts-surface {
                         overflow: visible;
                         margin-top: 5%;
 
-                        .recharts-yAxis {
-                            transform: translateX(100%);
-
-                            line {
-                                display: none;
-                            }
+                        .recharts-yAxis line {
+                            display: none;
                         }
 
                         .recharts-xAxis {
@@ -197,27 +219,69 @@ body {
                             }
                         }
 
+                        .recharts-cartesian-grid {
+                            transform: translateX(48px);
+                        }
+
+                        .recharts-cartesian-grid-horizontal line:first-of-type {
+                            stroke-dasharray: 0 !important;
+                        }
+
+                        .recharts-cartesian-axis line {
+                            display: none;
+                        }
+
+                        .recharts-tooltip-cursor {
+                            transform: translateX(26px);
+                        }
+
                     }
-                }
 
-                .recharts-tooltip-wrapper .recharts-default-tooltip {
-                    background-color: $couleur_primaire !important;
-                    border: 1px solid transparent !important;
+                    .recharts-tooltip-wrapper {
+                        border: none !important;
 
-                    .recharts-tooltip-label {
-                        display: none;
-                    }
+                        &:focus-visible {
+                            outline: -webkit-focus-ring-color auto 0px !important;
+                        }
 
-                    ul {
-                        li {
-                            text-align: center;
-                            color: white !important;
-                            font-weight: 500;
-                            font-size: 12px;
+                        .recharts-default-tooltip {
+                            background-color: $couleur_primaire !important;
+                            border: none !important;
+
+                            .recharts-tooltip-label {
+                                display: none;
+                            }
+
+                            ul {
+                                li {
+                                    text-align: center;
+                                    color: white !important;
+                                    font-weight: 500;
+                                    font-size: 12px;
+
+                                    &:first-of-type {
+                                        margin-bottom: 20px;
+
+                                        .recharts-tooltip-item-value::after {
+                                            content: "kg";
+                                        }
+                                    }
+
+                                    &:last-of-type .recharts-tooltip-item-value::after {
+                                        content: "kcal";
+                                    }
+
+                                    .recharts-tooltip-item-name,
+                                    .recharts-tooltip-item-separator {
+                                        display: none;
+                                    }
+                                }
+                            }
+
                         }
                     }
-
                 }
+
 
                 .recharts-cartesian-grid-vertical line {
                     display: none;
@@ -225,11 +289,17 @@ body {
             }
 
             .lineChart {
-                width: 30%;
+                width: calc(83% / 3);
                 margin: 10% 0 0 10%;
                 padding: 20px 0;
-                background: $couleur_primaire;
+                background: linear-gradient(90deg, rgba(255, 0, 0, 1) 70%, rgba(214, 4, 4, 1) 70%);
                 border-radius: 5px;
+
+                @media (max-width: 1405px) {
+                    margin: 10% 0 0 0;
+                    width: calc(78% / 3);
+                    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 73%, rgba(214, 4, 4, 1) 73%);
+                }
 
                 h2 {
                     margin-bottom: 25%;
@@ -238,39 +308,98 @@ body {
                     opacity: .5;
                 }
 
-                &>div>svg.recharts-surface {
+                &>div {
+                    height: 135px !important;
                     width: 100% !important;
 
-                    .recharts-xAxis {
-                        line {
+                    &>svg.recharts-surface {
+                        width: 100% !important;
+
+                        .recharts-xAxis {
+                            transform: scale(0.9) translate(19px, 25px);
+
+                            line {
+                                display: none;
+                            }
+
+                            text {
+                                fill: white !important;
+                                font-size: 14px;
+                                font-weight: 500;
+                            }
+
+                        }
+
+                        .recharts-line {
+                            transform: scale(1.03) translateX(-4px);
+
+                            path {
+                                stroke: rgb(255, 255, 255) !important;
+                            }
+                        }
+
+                    }
+                }
+
+                .recharts-tooltip-cursor {
+                    display: none;
+                }
+
+                circle {
+                    fill: white !important;
+                    stroke: rgba(255, 255, 255, 0.2) !important;
+                    stroke-width: 20px;
+                }
+
+                .recharts-tooltip-wrapper {
+                    &:focus-visible {
+                        outline: -webkit-focus-ring-color auto 0px !important;
+                    }
+
+                    .recharts-tooltip-label {
+                        display: none;
+                    }
+
+
+                    ul li {
+                        color: black !important;
+
+                        .recharts-tooltip-item-name,
+                        .recharts-tooltip-item-separator {
                             display: none;
                         }
 
-                        g {
-                            font-weight: 500;
-                            font-size: 12px;
-                            color: white !important;
+                        .recharts-tooltip-item-value::after {
+                            content: " min";
                         }
                     }
-
                 }
             }
 
             .RadarChart {
-                width: 30%;
+                width: calc(83% / 3);
                 height: 300px;
                 margin-top: 10%;
                 background: #282D30;
                 border-radius: 5px;
 
+                @media (max-width: 1405px) {
+                    width: calc(78% / 3);
+                }
+
                 .recharts-wrapper {
-                    width: 275px !important;
+                    width: 100% !important;
                     margin: 0 auto;
 
                     &>svg {
                         width: 100%;
                         height: 100%;
+                        transform: scale(0.85);
                         overflow: visible;
+
+                        @media (max-width: 1405px) {
+                            transform: scale(0.82);
+                        }
 
                         g text {
                             fill: white !important;
@@ -296,13 +425,55 @@ body {
             }
 
             .RadialBarChart_Score {
-                width: 23%;
-                height: 200px;
+                position: relative;
+                width: calc(83% / 3);
+                height: 300px;
                 margin-top: 10%;
+                background: #f3f3f3a1;
+                border-radius: 5px;
+
+                @media (max-width: 1405px) {
+                    width: calc(78% / 3);
+                }
 
                 &>div>svg {
                     width: 100%;
                     height: 100%;
+                    overflow: visible !important;
+                }
+
+                h2 {
+                    padding: 5% 10% 0;
+                    margin-bottom: 0;
+                }
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    right: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30%;
+                    height: 100%;
+                    transform: translateX(50%);
+                    text-align: center;
+                    font-size: 16px;
+                    color: #74798C;
+
+                    p {
+                        margin: 0;
+                        display: block;
+                        font-size: 26px;
+                        font-weight: 700;
+                        color: #282D30;
+                    }
+                }
+
+                .recharts-area {
+                    transform: rotate(-20deg) translate(-45px, 0) !important;
+
                 }
             }
         }
@@ -310,11 +481,22 @@ body {
         #key_info {
             width: 30%;
 
+            @media (max-width: 1405px) {
+                width: 100%;
+            }
+
             ul {
                 display: flex;
                 flex-direction: column;
                 gap: 100px;
                 padding: 5%;
+
+                @media (max-width: 1405px) {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap: 65px;
+                    padding: 5% 8%;
+                }
 
                 li {
                     display: flex;
