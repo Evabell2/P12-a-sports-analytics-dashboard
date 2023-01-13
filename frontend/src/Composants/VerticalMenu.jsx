@@ -4,7 +4,6 @@ import icon1 from '../assets/icon-menu-1.png'
 import icon2 from '../assets/icon-menu-2.png'
 import icon3 from '../assets/icon-menu-3.png'
 import icon4 from '../assets/icon-menu-4.png'
-import '../style/style.css'
 
 function VerticalMenu() {
     return (

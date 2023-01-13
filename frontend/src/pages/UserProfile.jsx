@@ -5,21 +5,23 @@ import KeyInfo from "../Composants/KeyInfo"
 import LineChartDurationSessions from "../Composants/LineChartSessions"
 import RadarChartTypeActivity from "../Composants/RadarChartType"
 import RadialBarChartScore from "../Composants/RadialBarChartScore"
+import { useParams } from 'react-router-dom'
 
 function UserProfile() {
+  const {userID} = useParams()
     return (
       <div id='user_profile'>
-        <NameUser />
+        <NameUser userID={userID}/>
 
         <section id='graphics'>
-          <BarChartActivity />
-          <LineChartDurationSessions />
-          <RadarChartTypeActivity />
-          <RadialBarChartScore />
+          <BarChartActivity userID={userID}/>
+          <LineChartDurationSessions userID={userID}/>
+          <RadarChartTypeActivity userID={userID}/>
+          <RadialBarChartScore userID={userID}/>
         </section>
         
         <section id='key_info'>
-          <KeyInfo />
+          <KeyInfo userID={userID}/>
         </section>
       </div>
     )

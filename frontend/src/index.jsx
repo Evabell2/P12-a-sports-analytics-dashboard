@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Home from "./pages/Home"
 import UserProfile from "./pages/UserProfile"
 import HorizontalMenu from "./Composants/HorizontalMenu"
 import VerticalMenu from "./Composants/VerticalMenu"
@@ -15,7 +16,8 @@ root.render(
         <VerticalMenu />
         
         <Routes>
-            <Route path='/' element={<UserProfile />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/user/:userID' element={<UserProfile />} />
         </Routes>
 
     </BrowserRouter>,

@@ -1,9 +1,10 @@
 import service from "../service"
+import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 import React from 'react';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
-function RadialBarChartScore() {
+function RadialBarChartScore({userID}) {
   const [score, setScore] = useState([
 
     {
@@ -16,12 +17,11 @@ function RadialBarChartScore() {
     },
   ])
   useEffect(() => {
-    service.getUser(18)
+    service.getUser(userID)
     .then(data => {
       setScore([
-
         {
-          uv: data.data.score,
+          uv: data.data.theScore,
           fill: '#FF0000',
         },
         {
@@ -30,7 +30,7 @@ function RadialBarChartScore() {
         },
       ])
     })
-  }, [])
+  },)
   
   return (
     <div className='RadialBarChart_Score'>
@@ -43,6 +43,9 @@ function RadialBarChartScore() {
       <span><p>{`${score[0].uv*100}%`}</p>de votre objectif</span>
     </div>
   )
+}
+RadialBarChartScore.propTypes = {
+  userID: PropTypes.string.isRequired,
 }
     
 export default RadialBarChartScore

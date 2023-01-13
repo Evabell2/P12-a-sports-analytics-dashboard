@@ -65,6 +65,33 @@ body #vertical_menu div p {
   font-size: 12px;
   color: white;
 }
+body #home {
+  float: right;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+body #home button {
+  margin: 20px;
+  background: transparent;
+  border: none;
+}
+body #home button a {
+  padding: 12px 30px;
+  background: #FF0101;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition-duration: 400ms;
+}
+body #home button a:hover {
+  background: black;
+}
 body #user_profile {
   display: flex;
   flex-wrap: wrap;
@@ -335,10 +362,13 @@ body #user_profile #graphics .RadarChart .recharts-wrapper > svg {
     transform: scale(0.82);
   }
 }
-body #user_profile #graphics .RadarChart .recharts-wrapper > svg g text {
+body #user_profile #graphics .RadarChart .recharts-wrapper > svg .recharts-polar-angle-axis-ticks g.recharts-polar-angle-axis-tick:nth-of-type(4) text {
+  transform: translateY(10px);
+}
+body #user_profile #graphics .RadarChart .recharts-wrapper > svg .recharts-polar-angle-axis-ticks g.recharts-polar-angle-axis-tick text {
   fill: white !important;
 }
-body #user_profile #graphics .RadarChart .recharts-wrapper > svg g text tspan {
+body #user_profile #graphics .RadarChart .recharts-wrapper > svg .recharts-polar-angle-axis-ticks g.recharts-polar-angle-axis-tick text tspan {
   font-weight: 500;
   font-size: 12px;
 }

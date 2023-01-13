@@ -1,4 +1,5 @@
 import service from "../service"
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import ImgCalories from "../assets/calories-icon.png"
@@ -6,10 +7,10 @@ import ImgProteines from "../assets/protein-icon.png"
 import ImgGlucides from "../assets/carbs-icon.png"
 import ImgLipides from "../assets/fat-icon.png"
 
-function KeyInfo() {
+function KeyInfo({userID}) {
     const [user, setUser] = useState({})
     useEffect(() => {
-        service.getUser(18)
+        service.getUser(userID)
         .then(data => {
         setUser(data)
         })
@@ -46,6 +47,9 @@ function KeyInfo() {
             </li>
         </ul>
     )
+}
+KeyInfo.propTypes = {
+    userID: PropTypes.string.isRequired,
 }
 export default KeyInfo
     

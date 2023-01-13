@@ -1,11 +1,12 @@
 import service from "../service"
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-function NameUser() {
+function NameUser({userID}) {
   const [user, setUser] = useState({})
   useEffect(() => {
-    service.getUser(18)
+    service.getUser(userID)
     .then(data => {
       setUser(data)
     })
@@ -16,6 +17,9 @@ function NameUser() {
           <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
     )
+}
+NameUser.propTypes = {
+  userID: PropTypes.string.isRequired,
 }
     
 export default NameUser

@@ -1,12 +1,13 @@
 import service from "../service"
+import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 import React from 'react';
 import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 
-function LineChartDurationSessions() {
+function LineChartDurationSessions({userID}) {
     const [duration, setDuration] = useState({})
     useEffect(() => {
-        service.getAverageSessions(18)
+        service.getAverageSessions(userID)
         .then(data => {
             setDuration(data)
         })
@@ -22,5 +23,8 @@ function LineChartDurationSessions() {
             </LineChart>
         </div>
     )
+}
+LineChartDurationSessions.propTypes = {
+    userID: PropTypes.string.isRequired,
 }
 export default LineChartDurationSessions
