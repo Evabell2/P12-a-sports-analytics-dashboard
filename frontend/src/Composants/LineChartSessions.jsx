@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 
+
+/**
+ * @component 
+ * @param {string} userID - The ID of the user for which we are displaying activity data.
+ * @returns {JSX.Element} - User sessions graph rendering.
+ */
 function LineChartDurationSessions({userID}) {
     const [duration, setDuration] = useState({})
     useEffect(() => {

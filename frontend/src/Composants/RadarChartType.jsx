@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
+/**
+ * @component 
+ * @param {string} userID - The ID of the user for which we are displaying activity data.
+ * @returns {JSX.Element} - User Activity Performance Graph Rendering.
+ */
 function RadarChartTypeActivity({userID}) {
     const [performance, setPerformance] = useState({})
     useEffect(() => {

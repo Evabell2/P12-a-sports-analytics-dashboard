@@ -5,14 +5,14 @@ const mockedData = false
 /**
  * service
  * Objet appealing specialized methods to extract data for each service.
- * @returns {null|string|number|Object|array}
+ * @returns {Object}
  */
 const service = {
 
 /**
  * get the data from user/id url
  * @param {(string|Object)} - id
- * @returns data for RadialBarChartScore and NameUser Component
+ * @returns data for RadialBarChartScore, NameUser and KeyInfo Component
  */
     getUser: async(id)  => {
         if (!mockedData) {
@@ -27,6 +27,12 @@ const service = {
             return scoreFormatage.setScore(data)
         }
     },
+
+/**
+ * get the data from user/id/activity url
+ * @param {(string|Object)} - id
+ * @returns data for BarChartActivity Component
+ */
     getActivity: async(id) => {
         if (!mockedData) {
             const response = await fetch("http://localhost:3000/user/"+id+"/activity")
@@ -40,6 +46,12 @@ const service = {
             return dateFormatage.setDay(data)
         }
     },
+
+/**
+ * get the data from user/id/average-sessions url
+ * @param {(string|Object)} - id
+ * @returns data for LineChartDurationSessions Component
+ */
     getAverageSessions: async(id) => {
         if (!mockedData) {
             const response = await fetch("http://localhost:3000/user/"+id+"/average-sessions")
@@ -53,6 +65,12 @@ const service = {
             return weekFormatage.setWeek(data)
         }
     },
+
+/**
+ * get the data from user/id/performance url
+ * @param {(string|Object)} - id
+ * @returns data for RadarChartTypeActivity Component
+ */
     getPerformance: async(id) => {
         if (!mockedData) {
             const response = await fetch("http://localhost:3000/user/"+id+"/performance")

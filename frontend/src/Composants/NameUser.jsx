@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
+/**
+ * @component 
+ * @param {string} userID - The ID of the user for which we are displaying activity data.
+ * @returns {JSX.Element} - Rendering of the user name component.
+ */
 function NameUser({userID}) {
   const [user, setUser] = useState({})
   useEffect(() => {

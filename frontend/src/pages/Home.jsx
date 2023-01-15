@@ -1,5 +1,10 @@
 import '../style/style.css'
 
+/**
+ * @component - represents the homepage.
+ * @returns {JSX.Element} - Component rendering.
+ */
+
 function Home() {
     return (
       <div id='home'>

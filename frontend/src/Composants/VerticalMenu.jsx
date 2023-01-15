@@ -5,6 +5,10 @@ import icon2 from '../assets/icon-menu-2.png'
 import icon3 from '../assets/icon-menu-3.png'
 import icon4 from '../assets/icon-menu-4.png'
 
+/**
+ * @component 
+ * @returns {JSX.Element} - Vertical menu rendering.
+ */
 function VerticalMenu() {
     return (
       <div id='vertical_menu'>

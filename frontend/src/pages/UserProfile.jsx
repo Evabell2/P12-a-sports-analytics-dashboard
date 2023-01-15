@@ -7,6 +7,10 @@ import RadarChartTypeActivity from "../Composants/RadarChartType"
 import RadialBarChartScore from "../Composants/RadialBarChartScore"
 import { useParams } from 'react-router-dom'
 
+/**
+ * @component - represents the user's page.
+ * @returns {JSX.Element} - Component rendering.
+ */
 function UserProfile() {
   const {userID} = useParams()
     return (

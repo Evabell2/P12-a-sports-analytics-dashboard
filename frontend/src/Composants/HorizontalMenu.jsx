@@ -3,6 +3,11 @@ import Logo from '../assets/logo.png'
 import '../style/style.css'
 import ItemMenuHorizontal from './ItemMenuHorizontal'
 import PropTypes from 'prop-types'
+
+/**
+ * @component 
+ * @returns {JSX.Element} - Horizontal menu rendering.
+ */
 function HorizontalMenu() {
     return (
       <header id='horizontal_menu'>

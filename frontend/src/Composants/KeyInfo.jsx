@@ -7,6 +7,12 @@ import ImgProteines from "../assets/protein-icon.png"
 import ImgGlucides from "../assets/carbs-icon.png"
 import ImgLipides from "../assets/fat-icon.png"
 
+
+/**
+ * @component 
+ * @param {string} userID - The ID of the user for which we are displaying activity data.
+ * @returns {JSX.Element} - Component rendering.
+ */
 function KeyInfo({userID}) {
     const [user, setUser] = useState({})
     useEffect(() => {

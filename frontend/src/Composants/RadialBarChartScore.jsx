@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
+/**
+ * @component 
+ * @param {string} userID - The ID of the user for which we are displaying activity data.
+ * @returns {JSX.Element} - Rendering of daily user score graph.
+ */
 function RadialBarChartScore({userID}) {
   const [score, setScore] = useState([
 

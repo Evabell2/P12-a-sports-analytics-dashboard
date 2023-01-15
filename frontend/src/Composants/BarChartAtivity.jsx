@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
+
+/**
+ * @component 
+ * @param {string} userID - The ID of the user for which we are displaying activity data.
+ * @returns {JSX.Element} - User activity graph rendering.
+ */
 function BarChartActivity({userID}) {
   const [activity, setActivity] = useState({})
   useEffect(() => {
